@@ -1,0 +1,94 @@
+<style>
+    /**
+   * Vintage envelope themed border via border-image
+   */
+  
+  .box {
+      padding: 1em;
+      border: 16px solid transparent;
+      border-image: 16 repeating-linear-gradient(-45deg, #1ef876 0, #1ef876 1em, transparent 0, transparent 2em,
+      #4F84C4 0, #4F84C4 3em, transparent 0, transparent 4em);
+      
+      
+      font: 100%/1.6 Baskerville, Palatino, serif;
+  }
+  </style>
+
+<div class="w3-border w3-border-white w3-white w3-margin-bottom ">
+
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-12">
+        {% for contact_heading in heading %}
+          <div class="section-heading">
+            <h2 class="w3-text-blue ">{{contact_heading.title}}</h2>
+            <span class="w3-text-greenmint">{{contact_heading.contact_statement}}</span>
+          </div>
+        {% endfor %}
+        </div>
+        <div class="col-md-12 box">
+          <div class="w3-margin">
+            <form method='POST' action="{% url 'contact' %}"  enctype='multipart/form-data'> {% csrf_token %}
+              <div class="row container">
+                
+                <div class="col-lg-4 w3-margin-bottom  col-sm-12">
+                  <div class=" w3-border-bottom w3-light-gray  w3-border-blue">
+                    <input name="name" type="text" class="form-control w3-border w3-border-white" id="name" placeholder="Full Name" required="">
+                  </div>
+                </div>
+                <div class="col-lg-4 w3-margin-bottom   col-sm-12">
+                  <div class="w3-border-bottom w3-border-blue w3-light-gray ">
+                    <input name="email" type="text" class="form-control w3-border w3-border-white" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
+                  </div>
+                </div>
+                <div class="col-lg-4 w3-margin-bottom   col-sm-12">
+                  <div class="w3-border-bottom w3-border-blue  ">
+                    <input name="phone" type="tel" class="form-control w3-border w3-border-white" id="phone"  placeholder="Phone" required="">
+                  </div>
+                </div>
+             
+              </div>
+                <div class="row">
+                <div class="col-sm-8">
+                <div class="col-lg-12 w3-margin-bottom  ">
+                  <div class="w3-border-bottom w3-border-blue ">
+                    <input name="subject" type="text" class="form-control w3-border w3-border-white" id="subject" placeholder="Subject" required="">
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12 w3-margin-bottom ">
+                  <div class="w3-border-bottom w3-border-blue ">
+                    <textarea name="message" rows="3" class="form-control w3-border w3-border-white" id="messages" placeholder="Your Message" required=""></textarea>
+                  </div>
+                </div>
+
+                </div>
+                  <div class="col-sm-4 ">
+                    {% for address in addresss %}
+                    <div class=" w3-normal w3-padding-16">
+                      <h4 class="w3-text-blue">{{address}}</h4>
+                      <p class="w3-text-greenmint"><strong>{{address.statement}}</strong></p>
+                      <p>{{address.address}}</p>
+                      <p>{{address.email}}</p>
+                      <p>{{address.phone}}</p>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="col-lg-12 w3-margin-bottom ">
+              <div class="w3-right border-button btn w3-2017-marina w3-hover-white w3-border w3-border-white col-sm">
+                <button type="submit" id="form-submit" class="w3-border btn col-sm w3-border-white w3-hover-shadow w3-hover-greenmint w3-2017-marina ">
+                  <span class="w3-large w3-wide">
+                  Send Message
+                  </span> 
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</div>

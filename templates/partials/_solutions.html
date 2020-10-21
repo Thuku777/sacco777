@@ -1,0 +1,47 @@
+{% load humanize %}
+{% for solution in solutions %}
+<div class="fun-facts " style="background-image: url('{{solution.image.url }}');">
+    <div class="container w3-black w3-opacity-min w3-padding-large">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="left-content">
+            <span class="w3-text-greenmint">{{solution.statement}}</span>
+            <h2 class="w3-text-blue ">{{solution.title}}</h2>
+            <p>{{solution.description|truncatewords:45|safe}}</p>
+            <a href="{% url 'solution-detail' solution.slug %}" class="filled-btn">Read More</a>
+          </div>
+        </div>
+        <div class="col-md-6 align-self-center">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="count-area-content">
+                <div class="count-digit">{{solution.count_1}}</div>
+                <div class="count-title">{{solution.fact_1}}</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="count-area-content">
+                <div class="count-digit">{{solution.count_2}}</div>
+                <div class="count-title">{{solution.fact_2}}</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="count-area-content">
+                <div class="count-digit">{{solution.count_3| intcomma}}</div>
+                <div class="count-title">{{solution.fact_3}}</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="count-area-content">
+                <div class="count-digit">{{solution.count_4| intcomma}}</div>
+                <div class="count-title">{{solution.fact_4}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</div>
+{% endfor %}

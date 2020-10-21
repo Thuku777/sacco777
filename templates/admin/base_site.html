@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block branding %}
+ <!-- CSS -->
+ <h1>
+<img src="{% static 'img/logos.png' %}" alt="Lapset Ajibika Sacco Society" style="border-radius:50%;" height="50px" width="50px" class="brand_img">
+Lapset Ajibika Sacco Society Admin Area</h1>
+{% endblock %}
+{% block extrastyle %}
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{{block.super}}
+{% endblock %}

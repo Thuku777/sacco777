@@ -1,0 +1,79 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Solutions {% endblock %}
+
+{% block content %}
+{% include 'partials/_navbar2.html' %}
+<!-- Header -->
+<div class="w3-padding-64">
+
+  <!-- Image header -->
+  <div class="w3-display-container w3-wide " id="home">
+    {% if solution.image %}
+    <img class="w3-image" src="{{solution.image.url}}" alt="{{solution}}" width="1600" height="1060">
+    {% endif %}
+
+    <div class="w3-display-middle w3-round w3-white w3-padding-large " width="100%">
+
+      <h5 class="w3-xxlarge w3-text-white w3-center "><b class="w3-text-blue">{{solution.title}}</b> <b class="text-success">{{solution.title_section_2}}</b></h5>
+      <h6 class="w3-text- w3-center w3-card w3-black w3-text-yellow w3-large">{{solution.statement}}</h6>
+    </div>
+</div>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-justify">
+            {{solution.description|safe}}
+        </div>
+      </div>
+      
+
+      
+    <!-- END BLOG ENTRIES -->
+    </div>
+
+    <!-- About/Information menu -->
+    <div class="w3-col l4">
+      <!-- About Card -->
+      <div class="w3-2017-marina w3-card-4 w3-padding w3-margin">
+        <div class="row">
+            <div class="w3-container col-sm-12">
+                <h4 class="w3-padding w3-center">{{solution.title}}</h4> 
+            </div>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Posts -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-food-kiwi">
+          <h4>Other Financial Solutions</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+        {% for service in services %}
+        
+        <a href="{% url 'service-detail' service.slug %}">
+          <li class="w3-padding-16">
+            {% if service.icon %}
+            <img src="{{service.icon.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+            {% endif %}
+            <span class="w3-large">{{service}}</span>
+          </li>
+        </a>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    </div>
+</div>
+      <hr>
+
+
+{% endblock %}

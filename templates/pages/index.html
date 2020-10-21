@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Home {% endblock %}
+
+{% block content %}
+  <!-- NavBar -->
+  {% include 'partials/_navbar.html' %}
+<!-- Page Content -->
+
+<div id="home" class=""></div>
+<!-- Banner -->
+{% include 'partials/_banner.html' %}
+
+
+<!-- *** Request Form *** -->
+<div class="request-form w3-2019-eden">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h4>Request a call back right now ?</h4>
+          <span>Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</span>
+        </div>
+        <div class="col-md-4">
+          <a href="#contact" class="border-button" onclick="toggleFunction()">Contact Us</a></div>
+      </div>
+    </div>
+  </div>
+<!-- *** End Request Form *** -->
+
+<div id="service" class="w3-margin "></div>
+
+<!-- *** Services Start *** -->
+{% include 'partials/_service.html' %}
+<!-- *** Services End *** -->
+
+
+<!-- *** Sacco Fun Facts Start *** -->
+{% include 'partials/_solutions.html' %}
+<!-- *** Sacco Fun Facts End *** -->
+
+
+<div id="about" class="w3-margin"></div>
+
+<!-- *** More info Start *** -->
+{% include 'partials/_about.html' %}
+<!-- *** More info End *** -->
+
+
+<div id="contact" class="w3-margin"></div>
+<br><br>
+<br><br>
+<!-- *** Contacts Start *** -->
+{% include 'partials/_contact.html' %}
+<br><br>
+<!-- *** Contacts End *** -->
+
+<script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+      }
+  }
+  </script>
+
+{% endblock %}

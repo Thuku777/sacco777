@@ -1,0 +1,85 @@
+
+
+
+<!-- *** Footer Start *** -->
+<footer class="w3-2019-eden ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 footer-item">
+          {% for address in addresss %}
+          <div class="col-md-12 ">
+            <a class="navbar-brand" href="{% url 'index' %}">
+              <img src="{{ address.logo.url }}" alt="logo" class="w3-circle  w3-margin-left w3-margin-right" style="width:50px; height:50px;">
+            </a>
+         </div>
+          <p>{{address.statement}}</p>
+          <h4 class="w3-text-greenmint">{{address}}</h4>
+          
+          
+          <ul class="social-icons">
+            {% if address.facebook %}
+            <li><a rel="nofollow" href="{{address.facebook}}" target="_blank"><i class="fab fa-facebook w3-text-light-blue"></i></a></li>
+            {% endif %}
+
+            {% if address.twitter %}
+            <li><a rel="nofollow" href="{{address.twitter}}"><i class="fab fa-twitter w3-text-blue"></i></a></li>
+            {% endif %}
+            
+            {% if address.instagram %}
+            <li><a  rel="nofollow" href="{{address.instagram}}"><i class="fab fa-instagram w3-pink"></i></a></li>
+            {% endif %}
+            
+            {% if address.youtube %}
+            <li><a rel="nofollow" href="{{address.youtube}}"><i class="fab fa-youtube w3-text-red"></i></a></li>
+            {% endif %}
+          </ul>
+          {% endfor %}
+        </div>
+        <div class="col-md-3 footer-item ">
+          <h4 class="w3-border-bottom w3-border-greenmint "></h4>
+          <ul class="menu-list">
+            <br>
+            {% for page in f1_pages %}
+                
+                <li><a href="{% url 'page-detail' page.slug %}" >{{ page.title }}</a></li>
+                
+              
+            {% endfor %}
+        
+       
+          </ul>
+        </div>
+        <div class="col-md-3 footer-item">
+          <h4 class="w3-border-bottom w3-border-aqua "></h4>
+          <ul class="menu-list">
+            <br>
+            {% for page in f2_pages %}
+                <li><a href="{% url 'page-detail' page.slug %}" >{{ page.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-md-3 footer-item">
+          <h4 class="w3-border-bottom w3-border-amber "></h4>
+          <ul class="menu-list">
+            <br>
+            {% for page in f3_pages %}      
+                <li><a href="{% url 'page-detail' page.slug %}" >{{ page.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="sub-footer w3-2017-marina">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Copyright &copy; 2020 Lapset Ajibika Sacco Society, Ltd.
+          
+          - Design: <a rel="nofollow noopener" href="#" target="_blank">Mfalme Softwares</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- *** Footer End *** -->

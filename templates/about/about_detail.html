@@ -1,0 +1,114 @@
+
+
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | About {% endblock %}
+
+{% block content %}
+{% include 'partials/_navbar2.html' %}
+<!-- Header -->
+<div class="w3-padding-64">
+
+  <!-- Image header -->
+  <div class="w3-display-container w3-wide " id="home">
+    {% if about.image %}
+    <img class="w3-image" src="{{about.image.url}}" alt="Fashion Blog" width="1600" height="1060">
+    {% endif %}
+
+    <div class="w3-display-middle w3-round w3-white  w3-padding-large " width="100%">
+
+      <h5 class="w3-xxlarge w3-text-white w3-center "><b class="w3-text-green">{{about.title}}</b></h5>
+      <h6 class="w3-text- w3-center w3-card w3-large w3-black w3-padding w3-text-yellow w3-large">{{about.statement}}</h6>
+    </div>
+</div>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-justify">
+            {{about.description|safe}}
+        </div>
+      </div>
+      
+
+      
+    <!-- END BLOG ENTRIES -->
+    </div>
+
+    <!-- About/Information menu -->
+    <div class="w3-col l4">
+      <!-- About Card -->
+      <div class=" w3-padding w3-margin">
+        <div class="w3-2017-marina w3-card-4">
+            <h4 class="w3-padding w3-center">Lapset Ajibika Sacco Society Team</h4>
+        </div>
+        <div class="row">
+            
+            <div class="w3-container col-sm-12">
+                {% for team in mvp_teams %}
+                <div class="w3-display-container w3-border w3-hover-sepia w3-border-white w3-card-4">
+                    {% if team.image %}
+                        <img src="{{team.image.url}}" alt="" class="" width="100%" height="auto">
+                    {% endif %}
+                    <div class="w3-display-middlebottom w3-black w3-opacity-min w3-padding">
+                        <h4 class="w3-text-white w3-center w3-border-bottom w3-border-white w3-wide">{{team.name}}</h4>
+                        <h6 class="w3-text-amber w3-center"><b>{{team.title}}</b> </h6>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="w3-row w3-margin-bottom">
+                    {% for team in staff_teams %}
+                    <div class="w3-col l6 m6 s6 w3-border w3-card-4 w3-border-white w3-hover-sepia ">
+                        <div class="w3-display-container">
+                        {% if team.image %}
+                            <img src="{{ team.image.url }}" alt="" class="" width="150px" height="185px">
+                        {% endif %}
+                        <div class="w3-display-middlebottom w3-2017-marina w3-center  w3-padding">
+                            <h6 class="w3-text-white w3-center ">{{team.name}}
+                            <br><span class="w3-text-white w3-small  ">{{team.title}}</span></h6>
+                        </div>
+                    </div>
+                       
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Posts -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-food-spearmint">
+          <h4>Financial Solutions</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+        {% for service in services %}
+        
+        <a href="{% url 'service-detail' service.slug %}">
+          <li class="w3-padding-16">
+            {% if service.icon %}
+            <img src="{{service.icon.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+            {% endif %}
+            <span class="w3-large">{{service}}</span>
+          </li>
+        </a>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    </div>
+</div>
+      <hr>
+
+
+{% endblock %}
+
+
+

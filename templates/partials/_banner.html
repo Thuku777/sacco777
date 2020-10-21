@@ -1,0 +1,67 @@
+<!-- Banner Starts Here -->
+{% load static %}
+
+<div class="Modern-Slider 
+">
+
+    <!-- Item -->
+    <div class="item w3-2019-eden ">
+        
+        <div class="img-fill w3-hide-large w3-hide-medium">
+           
+          
+            <div class="text-content row   w3-margin-top " style="width:200px; height:200px;">
+            
+               
+                <img src="{% static 'img/favicons.png' %}" alt="logo" class="w3-circle w3-card-4  w3-hide-smallw3-border-white w3-border " style="width:100px; height:100px; padding:8px; " >
+                <h5 class="w3-margin-bottom w3-center w3-border-top w3-border-white"> Equip Educate Empower <br>
+                    <span class="w3-margin-bottom w3-text-amber w3-small">Savings Loan Investment </span></h5>
+                
+            </div>
+        </div>
+        </div>
+</div>
+<div class="main-banner header-text   w3-2019-eden" id="top" style="padding:10px;" id="home">
+    <div class="Modern-Slider 
+    ">
+        <!-- Item -->
+        
+            <!-- // Item -->
+    <!-- Item --> 
+
+
+    {% for slide in slides %}
+    <div class="item item-1" >
+        <div class="img-fill">
+           
+            <div style="height:350px;" class="text-content row text-content w3-card-4  w3-hide-smallw3-round w3-border-white w3-border w3-padding w3-margin-top ">
+                {% include 'partials/_alerts.html' %}
+                <div class="col-sm-7">
+                <h6 class="w3-center w3-text-amber">{{ slide.label }}</h6>
+                <h4 class="w3-center">{{ slide}}</h4>
+                
+                <p class="w3-metro-darken w3-large w3-opacity-min  w3-card w3-round" style="padding-left: 10px;">{{slide.description}}</p>
+                
+
+                <a href="#" class="filled-button">Details</a>
+            </div>
+            <div  class="col-sm-5  w3-card-4  w3-hide-small" style="background-image: url('{{slide.image.url }}'); 
+                background-repeat: no-repeat; background-size: cover;">
+            </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+   
+
+        
+
+                </div>
+                </div>
+            </div>
+            </div>
+        
+        <!-- // Item -->
+    </div>
+</div>
+<!-- Banner Ends Here -->

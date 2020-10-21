@@ -1,0 +1,52 @@
+{% load static %}
+
+<!-- **** Header start **** -->
+{% include 'base/parallax.html' %}
+<header class="">
+  <nav class=" w3-margin-top ">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-circle w3-text-amber   w3-hover-white w3-xlarge w3-hover-text-greenmint w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/favicons.png' %}" alt="logo" class="w3-circle  w3-margin-left w3-margin-right" style="width:50px; height:50px;">
+      </a>
+
+      <a class="navbar-brand" href="{% url 'index' %}">
+      <h4 class="w3-text-white w3-center w3-margin-left"><strong>Lapset Ajibika Sacco Society</strong></h4></a>
+      <div class="w3-right w3-text-white">
+      <a href="{% url 'index' %}" class="w3-bar-item w3-hide-small w3-hover-text-greenmint">HOME</a>
+      <a href="#about" class="w3-bar-item w3-hover-text-greenmint w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+      <a href="#service" class="w3-bar-item w3-hover-text-greenmint w3-hide-small"><i class="fa fa-th"></i> SERVICE</a>
+      <a href="#contact" class="w3-bar-item w3-hover-text-greenmint w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+   
+      </a>
+    </div>
+  </nav>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-greenmint w3-hide w3-hide-large w3-hide-medium">
+      <a href="#home" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
+      <a href="#service" class="w3-bar-item w3-button" onclick="toggleFunction()">OUR SERVICES</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+     
+    </div>
+  </div>
+  
+  <script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+      }
+  }
+  </script>
+
+</header>
+
+<!-- **** End of header **** -->

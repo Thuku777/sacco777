@@ -1,0 +1,75 @@
+{% load static %}
+<style>
+  .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
+<!-- **** Header start **** -->
+{% include 'base/parallax.html' %}
+<header class="">
+  <div class="w3-padding w3-food-spearmint" id="myNavbar ">
+    <div class="w3-bar " >
+      <a class="w3-bar-item w3-button w3-circle w3-border w3-border-grey  w3-hover-white w3-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/favicons.png' %}" alt="logo" class="w3-circle  w3-margin-right" style="width:50px; height:50px;">
+      </a>
+
+      <a class="navbar-brand" href="{% url 'index' %}">
+      <h4 class="w3-text-white w3-center w3-margin-left"><strong>Lapset Ajibika Sacco Society</strong></h4></a>
+      <div class="w3-right w3-text-white ">
+      <a href="#home" class="w3-bar-item w3-hide-small w3-button">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small "><i class="fa fa-user"></i> ABOUT</a>
+      <a href="#service" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SERVICE</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+   
+      </a>
+    </div>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block  w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#home" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
+      <a href="#service" class="w3-bar-item w3-button" onclick="toggleFunction()">OUR SERVICES</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+     
+    </div>
+  </div>
+  
+  <script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+      }
+  }
+  
+  window.onscroll = function() {myFunction()};
+
+  var navbar = document.getElementById("myNavbar");
+  var sticky = navbar.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+</script>
+
+</header>
+
+<!-- **** End of header **** -->
